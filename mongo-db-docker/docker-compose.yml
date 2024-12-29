@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_shared
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_shared_data:/data/db
+    networks:
+      - mongo_network
+
+volumes:
+  mongo_shared_data:
+
+networks:
+  mongo_network:
